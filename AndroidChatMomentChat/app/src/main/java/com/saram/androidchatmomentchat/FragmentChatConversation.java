@@ -7,12 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-/**
- * Created by saram on 4/9/2016.
- */
 public class FragmentChatConversation extends Fragment {
 
-    public static FragmentChatConversation newInstance() {
+    public static final FragmentChatConversation newInstance() {
         FragmentChatConversation fragment = new FragmentChatConversation();
         return fragment;
     }
@@ -22,7 +19,7 @@ public class FragmentChatConversation extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_contacts, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_chat_conversation, container, false);
         return rootView;
     }
 }

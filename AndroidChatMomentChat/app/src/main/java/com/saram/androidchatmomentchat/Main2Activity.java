@@ -9,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import java.util.Locale;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -40,7 +37,7 @@ public class Main2Activity extends AppCompatActivity {
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+        //private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
         }
@@ -49,20 +46,18 @@ public class Main2Activity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        /*public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            //args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
-        }
+        }*/
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            View rootView = inflater.inflate(R.layout.fragment_chat, container, false);
             return rootView;
         }
     }
@@ -84,7 +79,7 @@ public class Main2Activity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     //return FragmentChat.newInstance();
-                    return FragmentChatConversation.newInstance();
+                    return FragmentChat.newInstance();
                 case 1:
                     return FragmentContacts.newInstance();
                 default:
@@ -99,7 +94,7 @@ public class Main2Activity extends AppCompatActivity {
             return 2;
         }
 
-        @Override
+        /*@Override
         public CharSequence getPageTitle(int position) {
             Locale l = Locale.getDefault();
             switch (position) {
@@ -109,6 +104,6 @@ public class Main2Activity extends AppCompatActivity {
                     return "CONTACTS";
             }
             return null;
-        }
+        }*/
     }
 }
