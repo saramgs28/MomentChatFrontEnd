@@ -1,8 +1,8 @@
 package com.saram.androidchatmomentchat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class FragmentChat extends Fragment{
 
     ListView list_conversations;
-    ArrayList<Contact> ArrayContacts; //test
-    ContactAdapter myAdapter;
+    ArrayList<Contact> ArrayContacts;
+    ContactChatAdapter myAdapter;
 
     public static FragmentChat newInstance() {
         FragmentChat fragment = new FragmentChat();
@@ -31,11 +31,11 @@ public class FragmentChat extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_chat, container, false);
         //Test: create the fake contacts. We have to take them from the database
         ArrayContacts=new ArrayList<Contact>();
-        ArrayContacts.add(new Contact("Sara", "5512148288"));
-        ArrayContacts.add(new Contact("Sid", "5512148289"));
+        ArrayContacts.add(new Contact("Sara"));
+        ArrayContacts.add(new Contact("Sid"));
 
         list_conversations = (ListView) rootView.findViewById(R.id.list_conversations);
-        myAdapter= new ContactAdapter(getContext(), ArrayContacts);
+        myAdapter= new ContactChatAdapter(getContext(), ArrayContacts);
         list_conversations.setAdapter(myAdapter);//relacionar el adaptador con la listview.
 
         //PREST ANY ITEM
@@ -43,13 +43,11 @@ public class FragmentChat extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.form, FragmentChatConversation.newInstance());
-                //FragmentChatConversation.newInstance();
-                //Toast.makeText(getContext(), "ENTRA AQUI", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getActivity(), ConversationActivity.class);
+                startActivity(i);
+                //SE DEBE PASAR LOS DATOS DEL USUARIO QUE ABRE LA CONVERSACION PARA GUARDAR EL HISTORIAL
             }
         });
         return rootView;
     }
 }
-

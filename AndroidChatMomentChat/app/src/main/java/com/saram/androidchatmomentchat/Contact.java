@@ -9,9 +9,11 @@ public class Contact {
 
             this.name = name;
             this.phone = phone;
-
         }
+        public Contact(String name){
 
+            this.name = name;
+        }
         public void setName(String name){
             this.name = name;
         }

@@ -78,7 +78,6 @@ public class Main2Activity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             switch (position) {
                 case 0:
-                    //return FragmentChat.newInstance();
                     return FragmentChat.newInstance();
                 case 1:
                     return FragmentContacts.newInstance();
@@ -93,17 +92,5 @@ public class Main2Activity extends AppCompatActivity {
             // Show 2 total pages.
             return 2;
         }
-
-        /*@Override
-        public CharSequence getPageTitle(int position) {
-            Locale l = Locale.getDefault();
-            switch (position) {
-                case 0:
-                    return "CHAT";
-                case 1:
-                    return "CONTACTS";
-            }
-            return null;
-        }*/
     }
 }
